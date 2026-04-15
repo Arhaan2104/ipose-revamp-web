@@ -38,36 +38,49 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-24 bg-gradient-to-br from-navy-dark via-navy to-navy-dark relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-gold rounded-full blur-[128px]" />
-        <div className="absolute bottom-10 right-10 w-48 h-48 bg-gold rounded-full blur-[96px]" />
+    <section
+      className="py-28 relative overflow-hidden grain"
+      style={{
+        background:
+          "radial-gradient(ellipse 100% 100% at 50% 100%, #0E7C7B 0%, #082e2e 40%, #051a1a 100%)",
+      }}
+    >
+      {/* Glow orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className="absolute w-[500px] h-[500px] rounded-full blur-[160px] opacity-15"
+          style={{ background: "radial-gradient(circle, #E8896B, transparent 70%)", top: "-20%", left: "30%" }}
+        />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <FadeInWhenVisible>
-          <p className="text-center text-gold text-sm font-bold uppercase tracking-widest mb-16">
-            The Numbers Speak
-          </p>
+          <div className="text-center mb-20">
+            <p className="text-gold/60 text-xs font-semibold uppercase tracking-[0.3em] mb-4">
+              The Numbers Speak
+            </p>
+            <div className="divider-gold mx-auto" />
+          </div>
         </FadeInWhenVisible>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
           {stats.map((s, i) => (
-            <FadeInWhenVisible key={i} delay={i * 0.15}>
+            <FadeInWhenVisible key={i} delay={i * 0.12}>
               <div className="text-center group">
-                <div className="w-14 h-14 mx-auto rounded-2xl bg-gold/10 flex items-center justify-center mb-5 group-hover:bg-gold/20 transition-colors">
-                  <s.icon className="w-7 h-7 text-gold" />
+                <div className="w-12 h-12 mx-auto rounded-full border border-white/10 flex items-center justify-center mb-6 group-hover:border-gold/30 transition-colors">
+                  <s.icon className="w-5 h-5 text-gold/70" />
                 </div>
-                <div className="text-4xl md:text-5xl font-heading font-bold text-white mb-2">
+                <div className="text-5xl md:text-6xl font-heading text-white mb-3 tracking-tight">
                   {s.isZero ? (
-                    <span>0</span>
+                    <span className="italic">0</span>
                   ) : (
-                    <AnimatedCounter target={s.value} suffix={s.suffix} />
+                    <span className="italic">
+                      <AnimatedCounter target={s.value} suffix={s.suffix} />
+                    </span>
                   )}
                 </div>
-                <p className="text-white font-semibold mb-1">{s.label}</p>
-                <p className="text-white/40 text-sm">{s.desc}</p>
+                <p className="text-white/80 text-sm font-medium mb-1">{s.label}</p>
+                <p className="text-white/30 text-xs">{s.desc}</p>
               </div>
             </FadeInWhenVisible>
           ))}

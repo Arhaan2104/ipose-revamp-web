@@ -16,26 +16,31 @@ export default function SectionHeading({
   return (
     <FadeInWhenVisible className={center ? "text-center" : ""}>
       {label && (
-        <span className="inline-block text-sm font-semibold tracking-widest uppercase text-gold mb-3">
+        <span
+          className={`inline-block text-xs font-semibold tracking-[0.3em] uppercase mb-4 ${
+            light ? "text-gold/60" : "text-gold-dark/70"
+          }`}
+        >
           {label}
         </span>
       )}
       <h2
-        className={`font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${
-          light ? "text-cream" : "text-navy-dark"
+        className={`font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-5 italic ${
+          light ? "text-white" : "text-slate"
         }`}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`text-lg max-w-2xl ${center ? "mx-auto" : ""} ${
-            light ? "text-cream/70" : "text-navy-dark/60"
+          className={`text-base max-w-xl font-light leading-relaxed ${center ? "mx-auto" : ""} ${
+            light ? "text-white/40" : "text-slate/50"
           }`}
         >
           {subtitle}
         </p>
       )}
+      <div className={`divider-gold mt-6 ${center ? "mx-auto" : ""}`} />
     </FadeInWhenVisible>
   );
 }
