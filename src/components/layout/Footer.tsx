@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-4">
-              <Logo size="sm" variant="light" />
+              <Logo size="sm" />
             </Link>
             <p className="text-sm leading-relaxed">
               India&apos;s first EV-native resale platform. AI-driven fair

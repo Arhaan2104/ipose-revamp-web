@@ -28,7 +28,7 @@ export default function DashboardSidebar() {
       {/* Logo */}
       <div className="px-6 py-6 border-b border-white/10">
         <Link href="/" className="inline-block">
-          <Logo size="sm" variant="light" />
+          <Logo size="sm" />
         </Link>
         <p className="text-white/30 text-xs mt-1">Buddy Portal</p>
       </div>
